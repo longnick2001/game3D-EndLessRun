@@ -14,11 +14,12 @@ public class GameManager : MonoBehaviour
     public static GameManager inst;
     [SerializeField]Text textScore;
     [SerializeField] Robot robot;
-    [SerializeField] Text textBlood;
-
+    // [SerializeField] Text textBlood;
+    [SerializeField] Slider thanhMau;
     private void Start()
     {
-        textBlood.text = "Blood: " + blood;
+        // textBlood.text = "Blood: " + blood;
+        thanhMau.value = blood;
     }
 
     public void IncrementScore()
@@ -40,8 +41,9 @@ public class GameManager : MonoBehaviour
             score -= 2;
             textScore.text = "Score: " + score;
         }
-        blood -= 50;
-        textBlood.text = "Blood: " + blood;
+        blood -= 20;
+        thanhMau.value = blood;
+        // textBlood.text = "Blood: " + blood;
         if (blood <= 0)
         {
             death.Play();
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         textScore.text = "Score: " + score;
         blood = 0;
-        textBlood.text = "Blood: " + blood;
+        // textBlood.text = "Blood: " + blood;
         if (blood <= 0)
         {
             Debug.Log("Fall-gameMana");

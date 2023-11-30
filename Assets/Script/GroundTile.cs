@@ -34,15 +34,17 @@ public class GroundTile : MonoBehaviour
 
     public void SpawnObstacle()
     {
+        
         GameObject obstacleToSpawn = obstacle;
         float random = Random.Range(0f, 1f);
         if (random < tallObstacleChange)
         {
             obstacleToSpawn = obstacleTall;
         }
-        
+        //choose a random ponit to spawn obstacle
         int obstacleSpawnIndex = Random.Range(2, 5);
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
+        //spawn the obstacle at the position
         Instantiate(obstacleToSpawn, spawnPoint.position, Quaternion.identity, transform);
     }
 
